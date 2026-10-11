@@ -79,11 +79,10 @@ actor IndexDatabase {
 
     /// Load the sqlite-vec extension
     private nonisolated static func loadExtension(connection: Connection) throws {
-        // Find the extension in the app bundle
+        // Find the extension in the app bundle (directly in Resources)
         guard let extensionPath = Bundle.main.path(
             forResource: "libsqlite_vec",
-            ofType: "dylib",
-            inDirectory: "Resources/sqlite-vec"
+            ofType: "dylib"
         ) else {
             throw IndexDatabaseError.extensionLoadFailed("Extension not found in bundle")
         }
