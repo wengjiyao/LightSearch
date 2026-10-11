@@ -19,6 +19,8 @@ targets:
       - LightSearch
     resources:
       - LightSearch/Resources
+      - path: LightSearch/Resources/sqlite-vec/libsqlite_vec.dylib
+        buildPhase: resources
     entitlements:
       path: LightSearch/App/LightSearch.entitlements
     settings:
