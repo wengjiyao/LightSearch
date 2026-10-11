@@ -1,0 +1,44 @@
+name: LightSearch
+options:
+  bundleIdPrefix: com.lightsearch
+  deploymentTarget:
+    macOS: "14.0"
+  developmentLanguage: Swift
+
+packages:
+  SQLite:
+    url: https://github.com/stephencelis/SQLite.swift
+    from: 0.15.0
+
+targets:
+  LightSearch:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - LightSearch
+    resources:
+      - LightSearch/Resources
+    entitlements:
+      path: LightSearch/App/LightSearch.entitlements
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.lightsearch.LightSearch
+      PRODUCT_NAME: LightSearch
+      GENERATE_INFOPLIST_FILE: true
+      INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.photography
+      INFOPLIST_KEY_CFBundleDisplayName: LightSearch
+      INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright © 2024"
+      MARKETING_VERSION: "0.1.0"
+      CURRENT_PROJECT_VERSION: "1"
+      SWIFT_VERSION: "6.0"
+      ENABLE_PREVIEWS: true
+      SWIFT_EMIT_LOC_STRINGS: true
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+      INFOPLIST_KEY_NSMainStoryboardFile: ""
+      INFOPLIST_KEY_NSPrincipalClass: NSApplication
+      LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
+      CODE_SIGN_IDENTITY: "-"
+    dependencies:
+      - package: SQLite
+        product: SQLite
